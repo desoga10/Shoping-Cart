@@ -27,9 +27,57 @@
 
         const item = {};
         item.img = `img-cart${partPath}`
-        console.log(item)
-      }
+        let name = event.target.parentElement.parentElement.nextElementSibling.children[0].children[0].textContent
+        let price = event.target.parentElement.parentElement.nextElementSibling.children[0].children[1].textContent
+        item.name = name;
 
+        let finalPrice = price.slice(1).trim()
+        item.price = finalPrice        
+        // console.log(item)
+
+
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item", "d-flex", "justify-content-between", "text-capitalize", "my-3");
+
+        cartItem.innerHTML = 
+        `   
+        <img src="${item.img}" class="img-fluid rounded-circle" id="item-img" alt="">
+        <div class="item-text">
+
+          <p id="cart-item-title" class="font-weight-bold mb-0">${item.name}</p>
+          <span>&#8358;</span>
+          <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
+        </div>
+        <a href="#" id='cart-item-remove' class="cart-item-remove">
+          <i class="fas fa-trash"></i>
+        </a>
+      </div>
+      `;
+
+      //Select Cart
+      const cart = document.getElementById("cart");
+      const total = document.querySelector(".cart-total-container");
+
+      cart .insertBefore(cartItem, total);
+      alert("Item Added To The Cart")
+
+      showTotal()
+      };
     });
   });
+  //Show Totals
+ function showTotal(){
+  const total = [];
+  const items = document.querySelectorAll(".cart-item-price");
+
+  items.forEach(function(item) {
+    total.push(parseFloat(item.textContent))
+  })
+  // console.log(total)
+  const totalMoney = total.reduce(function(total, item) {
+    total += item 
+    return total;
+  }, 0)
+  console.log(totalMoney)
+}
 })();
