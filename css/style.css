@@ -6,12 +6,12 @@
   --mainWhite: #fff;
   --mainBlack: #000;
   --yellowTrans: rgba(249, 228, 148, 0.5);
-  --mainGrey: rgb(238, 238, 238);
+  --mainGrey: rgb(182, 140, 140);
 }
 
 body {
   font-family: "Kaushan Script", cursive;
-  background: var(--mainWhite);
+  background: black;
   color: var(--mainBlack);
 }
 /* nav links */
@@ -58,7 +58,7 @@ body {
 .max-height {
   min-height: calc(100vh - 76px);
   background: linear-gradient(var(--yellowTrans), var(--yellowTrans)),
-    url("../img/headerBcg.jpeg") center/cover fixed no-repeat;
+    url("../img/oilseed-rape.jpg") center/cover fixed no-repeat;
   position: relative;
 }
 .banner {
@@ -249,4 +249,56 @@ body {
   top: 50%;
   right: 0;
   transform: translateX(60%);
+}
+
+
+
+.context-dark, .bg-gray-dark, .bg-primary {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+  color: #ffffff;
+}
+.nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+  content: "\f14f";
+  font: 400 21px/1 "Material Design Icons";
+  color: #4d6de6;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: -28px;
+  margin-right: 7px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .22s ease;
 }
